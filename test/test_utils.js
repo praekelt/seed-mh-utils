@@ -147,6 +147,19 @@ describe("Testing Utils Functions", function() {
         });
     });
 
+    describe("is_alpha_numeric_only", function() {
+        it("valid alpha-numerics", function() {
+            assert(Utils.is_alpha_numeric_only("John"));
+            assert(Utils.is_alpha_numeric_only("John123"));
+            assert(Utils.is_alpha_numeric_only("J1o2h3n"));
+        });
+        it("invalid alpha-numerics", function() {
+            assert.equal(Utils.is_alpha_numeric_only(" 123"), false);
+            assert.equal(Utils.is_alpha_numeric_only("Jo h n"), false);
+            assert.equal(Utils.is_alpha_numeric_only("J1o#hn?"), false);
+        });
+    });
+
     describe("is_valid_name", function() {
         it("valid name", function() {
             assert(Utils.is_valid_name("John", 1, 5));
