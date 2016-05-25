@@ -185,4 +185,16 @@ describe("Testing Utils Functions", function() {
         });
     });
 
+    describe("is_true", function() {
+        it("valid", function() {
+            assert(Utils.is_true(true));
+            assert(Utils.is_true("true"));
+        });
+        it("invalid", function() {
+            assert.equal(Utils.is_true(undefined), false);
+            assert.equal(Utils.is_true("True"), false);
+            assert.equal(Utils.is_true(false), false);
+        });
+    });
+
 });
