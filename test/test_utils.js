@@ -56,6 +56,17 @@ describe("Testing Utils Functions", function() {
         });
     });
 
+    describe("get_timestamp", function() {
+        it("when date passed in, return the same as moment object", function() {
+            assert.deepEqual(Utils.get_timestamp("YYYY-MM-DD-HH-mm-ss"),
+                new moment().format("YYYY-MM-DD-HH-mm-ss"));
+        });
+        it("no date passed, return current moment object", function() {
+            assert.deepEqual(Utils.get_timestamp(),
+                new moment().format("YYYYMMDDHHmmss"));
+        });
+    });
+
     describe("get_today", function() {
         it("when date passed in, return the same as moment object", function() {
             assert.deepEqual(Utils.get_today("2016-05-19").format("YYYY-MM-DD"),
